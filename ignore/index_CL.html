@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hello</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #000000;
+    --ink: #ffffff;
+    --ink-soft: rgba(255, 255, 255, 0.82);
+    --ink-mute: rgba(255, 255, 255, 0.55);
+    --ink-faint: rgba(255, 255, 255, 0.3);
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--ink);
+    height: 100%;
+  }
+
+  body {
+    font-family: 'Fraunces', Georgia, serif;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 6vh 8vw;
+    overflow-x: hidden;
+  }
+
+  main {
+    margin-top: auto;
+    margin-bottom: auto;
+    max-width: 18ch;
+  }
+
+  .line-one {
+    margin: 0;
+    font-weight: 400;
+    font-optical-sizing: auto;
+    font-size: clamp(2.75rem, 9vw, 6rem);
+    line-height: 1.02;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+
+  .line-two {
+    margin: 0.3em 0 0;
+    font-weight: 300;
+    font-style: italic;
+    font-optical-sizing: auto;
+    font-size: clamp(1.5rem, 4.5vw, 2.75rem);
+    line-height: 1.15;
+    color: var(--ink-soft);
+  }
+
+  footer {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .contact {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 300;
+    font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+    letter-spacing: 0.01em;
+  }
+
+  .contact a {
+    color: var(--ink-mute);
+    text-decoration: none;
+    border-bottom: 1px solid var(--ink-faint);
+    padding-bottom: 0.15em;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .contact a:hover,
+  .contact a:focus-visible {
+    color: var(--ink);
+    border-color: var(--ink-mute);
+  }
+
+  .contact a:focus-visible {
+    outline: 1px solid var(--ink-mute);
+    outline-offset: 4px;
+  }
+
+  @media (max-width: 480px) {
+    body { padding: 5vh 7vw; }
+    main { max-width: 16ch; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .contact a { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+  <main>
+    <p class="line-one">Hello.</p>
+    <p class="line-two">How may I help you?</p>
+  </main>
+
+  <footer>
+    <p class="contact"><a href="mailto:hello@yourdomain.com">hello@yourdomain.com</a></p>
+  </footer>
+
+</body>
+</html>

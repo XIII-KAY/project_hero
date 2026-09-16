@@ -17,7 +17,7 @@
   var contactNav = document.querySelector('.contact-nav');
 
   function closeMenu() {
-    if (nav.classList.contains('open')) {
+    if (nav && nav.classList.contains('open')) {
       nav.classList.remove('open');
       if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
     }

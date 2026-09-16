@@ -1,8 +1,12 @@
+"use client";
+
 import Reveal from "./reveal";
-import { mailto } from "@/lib/site";
+import { useContactModal } from "./contact-modal-context";
 import type { DetailBlock } from "@/lib/content";
 
 export default function DetailSection({ block }: { block: DetailBlock }) {
+  const { openModal } = useContactModal();
+
   return (
     <div id={block.id} className="detail">
       <Reveal as="div" className="detail-head">
@@ -18,20 +22,6 @@ export default function DetailSection({ block }: { block: DetailBlock }) {
           <p key={p}>{p}</p>
         ))}
         {block.extraParagraph && <p>{block.extraParagraph}</p>}
-
-        {block.workItems && (
-          <>
-            {block.lead && <p className="lead">{block.lead}</p>}
-            <div className="work-grid">
-              {block.workItems.map((item) => (
-                <div className="work-item" key={item.title}>
-                  <h4>{item.title}</h4>
-                  <p>{item.text}</p>
-                </div>
-              ))}
-            </div>
-          </>
-        )}
 
         {block.chips && (
           <>
@@ -70,7 +60,14 @@ export default function DetailSection({ block }: { block: DetailBlock }) {
         )}
 
         {block.link && (
-          <a href={mailto(block.link.subject)} className="detail-link">
+          <a
+            href="#"
+            className="detail-link"
+            onClick={(e) => {
+              e.preventDefault();
+              openModal({ projectType: block.formType });
+            }}
+          >
             {block.link.label}
           </a>
         )}

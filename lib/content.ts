@@ -1,5 +1,6 @@
 export type DetailBlock = {
   id: string;
+  formType: string;
   eyebrow: string;
   title: string;
   hl: string;
@@ -8,13 +9,13 @@ export type DetailBlock = {
   extraParagraph?: string;
   lead?: string;
   chips?: Array<{ heading?: string; items: string[] }>;
-  workItems?: Array<{ title: string; text: string }>;
   link?: { label: string; subject: string };
 };
 
 export const detailBlocks: DetailBlock[] = [
   {
     id: "ai-data",
+    formType: "ai-data",
     eyebrow: "02 — Domain of this Project",
     title: "AI Data",
     hl: "Operations",
@@ -47,6 +48,7 @@ export const detailBlocks: DetailBlock[] = [
   },
   {
     id: "research",
+    formType: "research",
     eyebrow: "03 — Domain of this Project",
     title: "Research &",
     hl: "Survey Ops",
@@ -77,6 +79,7 @@ export const detailBlocks: DetailBlock[] = [
   },
   {
     id: "workforce",
+    formType: "workforce",
     eyebrow: "04 — Domain of this Project",
     title: "Remote",
     hl: "Workforce",
@@ -86,16 +89,21 @@ export const detailBlocks: DetailBlock[] = [
       "We handle the operational layer — from finding suitable workers to onboarding, training, communication, quality control, and project coordination.",
     ],
     lead: "We can support:",
-    workItems: [
-      { title: "Recruitment", text: "Find and screen project-specific workers." },
-      { title: "Onboarding", text: "Structured forms, verification, training, and documentation." },
-      { title: "Workforce Management", text: "Coordinate distributed teams and daily operations." },
-      { title: "Quality Control", text: "Track performance and maintain project standards." },
-      { title: "Process Management", text: "Create SOPs and repeatable workflows for large-scale projects." },
+    chips: [
+      {
+        items: [
+          "Recruitment & screening",
+          "Onboarding & training",
+          "Workforce management",
+          "Quality control",
+          "Process management & SOPs",
+        ],
+      },
     ],
   },
   {
     id: "transcription",
+    formType: "transcription",
     eyebrow: "05 — Domain of this Project",
     title: "Transcription",
     hl: "& Speech",
@@ -126,6 +134,7 @@ export const detailBlocks: DetailBlock[] = [
   },
   {
     id: "technology",
+    formType: "automation",
     eyebrow: "06 — Domain of this Project",
     title: "Technology",
     hl: "& Automation",

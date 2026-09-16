@@ -1,6 +1,9 @@
+"use client";
+
 import Reveal from "./reveal";
 import Nav from "./nav";
-import { mailto, SITE } from "@/lib/site";
+import { useContactModal } from "./contact-modal-context";
+import { SITE } from "@/lib/site";
 
 const services = [
   {
@@ -8,60 +11,62 @@ const services = [
     title: "AI Data & Annotation",
     sub: "Training data · LLM eval · QA",
     chips: ["AI Data Collection", "Data Annotation", "NLP Annotation", "LLM Response Evaluation", "RLHF Data", "Dataset QA"],
-    subject: "AI Data & Annotation",
+    formType: "ai-data",
   },
   {
     num: "02",
     title: "Transcription & Speech",
     sub: "Audio · ASR · multilingual",
     chips: ["Audio Transcription", "Hindi / English", "ASR Correction", "Speaker Diarization", "Speech Dataset Prep", "Voice Annotation"],
-    subject: "Transcription & Speech",
+    formType: "transcription",
   },
   {
     num: "03",
     title: "Survey & Market Research",
     sub: "Recruitment · fieldwork · QC",
     chips: ["Consumer Survey Recruitment", "Market Research Fieldwork", "Survey Quality Control", "Data Validation", "Participant Screening", "Workforce Management"],
-    subject: "Survey & Market Research",
+    formType: "research",
   },
   {
     num: "04",
     title: "Remote Workforce Ops",
     sub: "Recruitment · onboarding · coordination",
     chips: ["Freelancer Recruitment", "Candidate Screening", "Onboarding & Training", "Performance Tracking", "SOP Development", "High-Volume Hiring"],
-    subject: "Remote Workforce Ops",
+    formType: "workforce",
   },
   {
     num: "05",
     title: "Software & Web Dev",
     sub: "WordPress · full stack · frontend",
     chips: ["WordPress / WooCommerce", "Next.js & React", "Responsive Development", "API Integration", "Headless CMS", "JavaScript / TypeScript"],
-    subject: "Software & Web Dev",
+    formType: "software",
   },
   {
     num: "06",
     title: "Automation & Tech Solutions",
     sub: "Python · Selenium · workflows",
     chips: ["Workflow Automation", "Browser Automation", "Data Extraction", "Python / pandas", "Reporting Automation", "Recruitment Automation"],
-    subject: "Automation & Tech Solutions",
+    formType: "automation",
   },
   {
     num: "07",
     title: "AI & Data Specialist",
     sub: "LLM · annotation · QA",
     chips: ["LLM Evaluation", "Prompt / Response Eval", "Data Labeling", "Linguistic QA", "Transcription", "ASR Correction"],
-    subject: "AI & Data Specialist",
+    formType: "ai-data",
   },
   {
     num: "08",
     title: "Research & Data Services",
     sub: "Collection · cleaning · QC",
     chips: ["Market Research Support", "Data Collection", "Data Verification", "Data Cleaning", "Dataset Preparation", "Research Ops Support"],
-    subject: "Research & Data Services",
+    formType: "research",
   },
 ];
 
 export default function ServicesPage() {
+  const { openModal } = useContactModal();
+
   return (
     <>
       {/* Header banner */}
@@ -106,9 +111,13 @@ export default function ServicesPage() {
                 ))}
               </ul>
               <div className="svc-btn">
-                <a href={mailto(svc.subject)} className="btn btn-ink">
+                <button
+                  type="button"
+                  onClick={() => openModal({ projectType: svc.formType })}
+                  className="btn btn-ink"
+                >
                   Start a Project
-                </a>
+                </button>
               </div>
             </Reveal>
           ))}
@@ -118,14 +127,15 @@ export default function ServicesPage() {
         <Reveal className="contact-block">
           <div className="cb-label">Interested in working together?</div>
           <a
-            href={mailto(
-              "Interested in your services",
-              "Hello,\n\nI came across your services and I'm interested in learning more about...\n\nPlease let me know when you're available to chat.\n\nThank you.",
-            )}
+            href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              openModal();
+            }}
           >
             {SITE.email}
           </a>
-          <span className="contact-hint">(email pre-filled with &ldquo;Interested in...&rdquo;)</span>
+          <span className="contact-hint">(opens our project inquiry form)</span>
         </Reveal>
       </div>
     </>

@@ -1,7 +1,11 @@
+"use client";
+
 import Reveal from "./reveal";
-import { mailto } from "@/lib/site";
+import { useContactModal } from "./contact-modal-context";
 
 export default function Cta() {
+  const { openModal } = useContactModal();
+
   return (
     <div id="contact" className="cta">
       <div className="cta-blobs" aria-hidden="true">
@@ -16,7 +20,8 @@ export default function Cta() {
         </Reveal>
         <Reveal delay={0.08}>
           <h2 className="cta-headline">
-            Have a Project <span className="hl">in Mind?</span>
+            Do you have a <br />
+            <span className="hl">Project In Mind?</span>
           </h2>
         </Reveal>
         <Reveal delay={0.16}>
@@ -27,12 +32,16 @@ export default function Cta() {
         </Reveal>
         <Reveal delay={0.24}>
           <div className="cta-actions">
-            <a href={mailto("Project Inquiry")} className="btn btn-primary">
+            <button type="button" onClick={() => openModal()} className="btn btn-primary">
               Start a Conversation
-            </a>
-            <a href={mailto("Project Quote Request")} className="btn btn-secondary">
+            </button>
+            <button
+              type="button"
+              onClick={() => openModal({ projectType: "other" })}
+              className="btn btn-secondary"
+            >
               Request a Project Quote
-            </a>
+            </button>
           </div>
         </Reveal>
       </div>

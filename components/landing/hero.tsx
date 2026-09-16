@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 import Link from "next/link";
 import Reveal from "./reveal";
 import Nav from "./nav";
-import { mailto } from "@/lib/site";
+import { useContactModal } from "./contact-modal-context";
 
 const heroIndex = [
   { num: "01", label: "AI Data" },
@@ -16,6 +16,7 @@ const heroIndex = [
 export default function Hero() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const [glow, setGlow] = useState({ x: 0, y: 0, visible: false });
+  const { openModal } = useContactModal();
 
   function handleMove(e: React.MouseEvent) {
     const r = sectionRef.current?.getBoundingClientRect();
@@ -70,9 +71,9 @@ export default function Hero() {
 
         <Reveal delay={0.28}>
           <div className="hero-cta">
-            <a href={mailto("Project Inquiry")} className="btn btn-primary">
+            <button type="button" onClick={() => openModal()} className="btn btn-primary">
               Start a Project
-            </a>
+            </button>
             <Link href="/#capabilities" className="btn btn-secondary">
               Explore Our Services
             </Link>

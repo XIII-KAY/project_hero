@@ -4,12 +4,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { SITE } from "@/lib/site";
 import { cn } from "cn";
+import { useContactModal } from "./contact-modal-context";
 
-const navLinks = [
+const internalLinks = [
   { href: "/", label: "Home" },
   { href: "/#process", label: "How We Work" },
   { href: "/#why", label: "Why Us" },
-  { href: "mailto:" + SITE.email, label: "Contact" },
 ];
 
 const serviceLinks = [
@@ -22,6 +22,7 @@ const serviceLinks = [
 
 export default function Nav() {
   const pathname = usePathname();
+  const { openModal } = useContactModal();
 
   return (
     <nav className="hero-nav" aria-label="Main navigation">
@@ -31,8 +32,8 @@ export default function Nav() {
       </Link>
 
       <div className="hero-nav-links">
-        {navLinks.map((link) => {
-          const active = (link.href === "/" && pathname === "/") || (link.href === "/#process" && pathname === "/");
+        {internalLinks.map((link) => {
+          const active = link.href === "/" && pathname === "/";
           return (
             <Link
               key={link.label}
@@ -43,6 +44,14 @@ export default function Nav() {
             </Link>
           );
         })}
+
+        <button
+          type="button"
+          onClick={() => openModal()}
+          className="hero-link"
+        >
+          Contact
+        </button>
 
         <div className="nav-dropdown">
           <Link href="/services" className={cn("hero-link", pathname === "/services" && "active")}>
@@ -55,9 +64,6 @@ export default function Nav() {
                 {link.label}
               </Link>
             ))}
-            <Link href="/services" className="dd-all">
-              View all services
-            </Link>
           </div>
         </div>
       </div>

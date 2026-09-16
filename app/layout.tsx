@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import localFont from "next/font/local";
+import { ContactModalProvider } from "@/components/landing/contact-modal-context";
 import "./globals.css";
 
 const clashDisplay = localFont({
@@ -38,7 +39,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       lang="en"
       className={`${clashDisplay.variable} ${satoshi.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <ContactModalProvider>{children}</ContactModalProvider>
+      </body>
     </html>
   );
 }

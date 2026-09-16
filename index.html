@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AI Data, Research & Remote Workforce Solutions | KAYITS</title>
   <meta name="description" content="AI data annotation, survey research, transcription, remote workforce management, software development and automation solutions for businesses that need to scale." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://api.fontshare.com" />
+  <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&f[]=satoshi@400,500,700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -15,12 +15,15 @@
   <div class="app">
 
     <!-- ─── NAV ─── -->
-    <nav>
-      <a href="#home" class="logo" data-page="home">KAYITS</a>
-      <div class="nav-links">
+    <nav class="site-nav">
+      <a href="#home" class="logo" data-page="home">KAYITS<span class="logo-dot">.</span></a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links" id="nav-links">
         <a href="#home" data-page="home" class="active">Home</a>
         <div class="nav-dropdown">
-          <a href="#services" data-page="services" data-toggle="dropdown">Services ▾</a>
+          <a href="#services" data-page="services" data-toggle="dropdown">Services</a>
           <div class="nav-dropdown-menu">
             <a href="#home" data-scroll="ai-data" data-page="home">AI Data Operations</a>
             <a href="#home" data-scroll="research" data-page="home">Research &amp; Surveys</a>
@@ -31,7 +34,7 @@
         </div>
         <a href="#home" data-page="home" data-scroll="process">How We Work</a>
         <a href="#home" data-page="home" data-scroll="why">Why Us</a>
-        <a href="#services" data-page="services" class="contact-nav">Contact</a>
+        <a href="#services" data-page="services" class="contact-nav nav-cta">Contact</a>
       </div>
     </nav>
 
@@ -40,86 +43,118 @@
 
       <!-- Hero -->
       <div class="hero">
-        <div class="hero-bg"></div>
-        <div class="hero-dots"></div>
+        <div class="hero-blobs">
+          <div class="blob blob-a"></div>
+          <div class="blob blob-b"></div>
+          <div class="blob blob-c"></div>
+        </div>
+        <div class="hero-glow" aria-hidden="true"></div>
         <div class="hero-content">
-          <h1 class="hero-headline">People, Data &amp; Technology — Built to Scale</h1>
-          <p class="hero-description">
+          <span class="eyebrow hero-eyebrow reveal">AI Data · Research · Remote Workforce · Technology</span>
+          <h1 class="hero-headline reveal" style="--d:.08s">
+            <span>People, Data &amp; Technology.</span>
+            <span class="hl">Built to Scale.</span>
+          </h1>
+          <p class="hero-description reveal" style="--d:.16s">
             We help businesses collect, process, validate, and operationalize data through
             AI data services, research operations, remote workforces, and technology solutions.
           </p>
-          <p class="hero-description">
+          <p class="hero-description reveal" style="--d:.2s">
             From large-scale data annotation and survey projects to custom software and workflow
             automation, we combine skilled people with practical technology to deliver reliable,
             scalable operations.
           </p>
-          <div class="hero-cta">
+          <div class="hero-cta reveal" style="--d:.28s">
             <a href="mailto:hello@yourdomain.com?subject=Project%20Inquiry" class="btn btn-primary">Start a Project</a>
             <a href="#capabilities" class="btn btn-secondary">Explore Our Services</a>
           </div>
-          <span class="hero-tagline">AI Data · Research · Remote Workforce · Technology</span>
+        </div>
+        <div class="hero-index reveal" style="--d:.36s">
+          <div class="idx"><span>01</span>AI Data</div>
+          <div class="idx"><span>02</span>Research</div>
+          <div class="idx"><span>03</span>Workforce</div>
+          <div class="idx"><span>04</span>Automation</div>
         </div>
       </div>
 
-      <!-- ─── TRUSTED CAPABILITIES ─── -->
-      <div id="capabilities">
-        <h2 class="section-title">
-          From Data Collection to Delivery
-          <small>trusted capabilities</small>
-        </h2>
-        <p class="section-intro">
+      <!-- ─── CAPABILITIES ─── -->
+      <div id="capabilities" class="capabilities-section">
+        <div class="section-head reveal">
+          <span class="eyebrow">01 — Trusted Capabilities</span>
+          <h2 class="section-title">From Data Collection <span class="hl">to Delivery.</span></h2>
+        </div>
+        <p class="section-intro reveal">
           Whether you need thousands of data points collected, AI training data prepared,
           surveys completed, or business workflows automated, we provide the people, processes,
           and technology to get it done.
         </p>
 
-        <div class="capabilities-grid">
+        <div class="bento-grid reveal">
+          <article class="cap-card cap-1">
+            <span class="cap-num">01</span>
+            <div class="cap-body">
+              <h3>AI Data Operations</h3>
+              <p>Data annotation, labeling, LLM evaluation, linguistic QA, and dataset validation.</p>
+              <span class="cap-tag">Annotation</span>
+              <span class="cap-tag">LLM Eval</span>
+              <span class="cap-tag">Linguistic QA</span>
+            </div>
+          </article>
 
-          <div class="capability-card">
-            <h3>AI Data Operations</h3>
-            <p>Data annotation, labeling, LLM evaluation, linguistic QA, and dataset validation.</p>
-          </div>
+          <article class="cap-card cap-2">
+            <span class="cap-num">02</span>
+            <div class="cap-body">
+              <h3>Research &amp; Surveys</h3>
+              <p>Consumer surveys, market research fieldwork, respondent recruitment, and survey operations.</p>
+            </div>
+          </article>
 
-          <div class="capability-card">
-            <h3>Research &amp; Surveys</h3>
-            <p>Consumer surveys, market research fieldwork, respondent recruitment, and survey operations.</p>
-          </div>
+          <article class="cap-card cap-3">
+            <span class="cap-num">03</span>
+            <div class="cap-body">
+              <h3>Remote Workforce</h3>
+              <p>Recruitment, screening, onboarding, training, quality control, and distributed workforce management.</p>
+            </div>
+          </article>
 
-          <div class="capability-card">
-            <h3>Transcription &amp; Speech Data</h3>
-            <p>Audio transcription, ASR correction, speaker labeling, timestamping, and speech-data preparation.</p>
-          </div>
+          <article class="cap-card cap-4">
+            <span class="cap-num">04</span>
+            <div class="cap-body">
+              <h3>Transcription &amp; Speech</h3>
+              <p>Audio transcription, ASR correction, speaker labeling, timestamping, and speech-data preparation.</p>
+            </div>
+          </article>
 
-          <div class="capability-card">
-            <h3>Remote Workforce</h3>
-            <p>Recruitment, screening, onboarding, training, quality control, and distributed workforce management.</p>
-          </div>
+          <article class="cap-card cap-5">
+            <span class="cap-num">05</span>
+            <div class="cap-body">
+              <h3>Software Development</h3>
+              <p>Websites, WordPress, WooCommerce, web applications, APIs, and custom digital solutions.</p>
+            </div>
+          </article>
 
-          <div class="capability-card">
-            <h3>Software Development</h3>
-            <p>Websites, WordPress, WooCommerce, web applications, APIs, and custom digital solutions.</p>
-          </div>
-
-          <div class="capability-card">
-            <h3>Automation &amp; Data Processing</h3>
-            <p>Python, Selenium, browser automation, data processing, and business workflow automation.</p>
-          </div>
-
+          <article class="cap-card cap-6">
+            <span class="cap-num">06</span>
+            <div class="cap-body">
+              <h3>Automation &amp; Data Processing</h3>
+              <p>Python, Selenium, browser automation, data processing, and business workflow automation.</p>
+            </div>
+          </article>
         </div>
       </div>
 
       <!-- ─── AI DATA OPERATIONS ─── -->
-      <div id="ai-data" class="detail-section">
-        <div class="detail-header">
-          <span class="detail-label">Domain of this Project</span>
-          <h2 class="detail-title">AI Data Operations</h2>
-          <h3 class="detail-subtitle">Human Expertise for Better AI</h3>
+      <div id="ai-data" class="detail">
+        <div class="detail-head reveal">
+          <span class="eyebrow">02 — Domain of this Project</span>
+          <h2 class="detail-title">AI Data <span class="hl">Operations</span></h2>
+          <p class="detail-subtitle">Human Expertise for Better AI</p>
         </div>
-        <div class="detail-body">
+        <div class="detail-body reveal" style="--d:.1s">
           <p>AI systems are only as good as the data behind them.</p>
           <p>We provide human-powered data services that help organizations build, evaluate, and improve AI systems.</p>
-          <p>Our capabilities include:</p>
-          <ul class="detail-list">
+          <p class="lead">Our capabilities include:</p>
+          <ul class="chips">
             <li>Data annotation &amp; labeling</li>
             <li>Text and NLP annotation</li>
             <li>LLM response evaluation</li>
@@ -136,16 +171,16 @@
       </div>
 
       <!-- ─── RESEARCH & SURVEY OPERATIONS ─── -->
-      <div id="research" class="detail-section">
-        <div class="detail-header">
-          <span class="detail-label">Domain of this Project</span>
-          <h2 class="detail-title">Research &amp; Survey Operations</h2>
-          <h3 class="detail-subtitle">Reliable Data From Real People</h3>
+      <div id="research" class="detail">
+        <div class="detail-head reveal">
+          <span class="eyebrow">03 — Domain of this Project</span>
+          <h2 class="detail-title">Research &amp; <span class="hl">Survey Ops</span></h2>
+          <p class="detail-subtitle">Reliable Data From Real People</p>
         </div>
-        <div class="detail-body">
+        <div class="detail-body reveal" style="--d:.1s">
           <p>We support market research and consumer research projects with structured recruitment and survey operations.</p>
-          <p>Our teams can support:</p>
-          <ul class="detail-list">
+          <p class="lead">Our teams can support:</p>
+          <ul class="chips">
             <li>Consumer survey recruitment</li>
             <li>Online survey completion</li>
             <li>Market research fieldwork</li>
@@ -161,34 +196,34 @@
       </div>
 
       <!-- ─── REMOTE WORKFORCE SOLUTIONS ─── -->
-      <div id="workforce" class="detail-section">
-        <div class="detail-header">
-          <span class="detail-label">Domain of this Project</span>
-          <h2 class="detail-title">Remote Workforce Solutions</h2>
-          <h3 class="detail-subtitle">Build a Workforce Without Building the Infrastructure</h3>
+      <div id="workforce" class="detail">
+        <div class="detail-head reveal">
+          <span class="eyebrow">04 — Domain of this Project</span>
+          <h2 class="detail-title">Remote <span class="hl">Workforce</span></h2>
+          <p class="detail-subtitle">Build a Workforce Without Building the Infrastructure</p>
         </div>
-        <div class="detail-body">
+        <div class="detail-body reveal" style="--d:.1s">
           <p>Need a distributed team for a project?</p>
           <p>We handle the operational layer — from finding suitable workers to onboarding, training, communication, quality control, and project coordination.</p>
-          <p>We can support:</p>
-          <div class="workforce-grid">
-            <div class="workforce-item">
+          <p class="lead">We can support:</p>
+          <div class="work-grid">
+            <div class="work-item">
               <h4>Recruitment</h4>
               <p>Find and screen project-specific workers.</p>
             </div>
-            <div class="workforce-item">
+            <div class="work-item">
               <h4>Onboarding</h4>
               <p>Structured forms, verification, training, and documentation.</p>
             </div>
-            <div class="workforce-item">
+            <div class="work-item">
               <h4>Workforce Management</h4>
               <p>Coordinate distributed teams and daily operations.</p>
             </div>
-            <div class="workforce-item">
+            <div class="work-item">
               <h4>Quality Control</h4>
               <p>Track performance and maintain project standards.</p>
             </div>
-            <div class="workforce-item">
+            <div class="work-item">
               <h4>Process Management</h4>
               <p>Create SOPs and repeatable workflows for large-scale projects.</p>
             </div>
@@ -197,16 +232,16 @@
       </div>
 
       <!-- ─── TRANSCRIPTION & SPEECH DATA ─── -->
-      <div id="transcription" class="detail-section">
-        <div class="detail-header">
-          <span class="detail-label">Domain of this Project</span>
-          <h2 class="detail-title">Transcription &amp; Speech Data</h2>
-          <h3 class="detail-subtitle">Turn Audio Into Usable Data</h3>
+      <div id="transcription" class="detail">
+        <div class="detail-head reveal">
+          <span class="eyebrow">05 — Domain of this Project</span>
+          <h2 class="detail-title">Transcription <span class="hl">&amp; Speech</span></h2>
+          <p class="detail-subtitle">Turn Audio Into Usable Data</p>
         </div>
-        <div class="detail-body">
+        <div class="detail-body reveal" style="--d:.1s">
           <p>We support speech and language-data projects requiring accurate human transcription and review.</p>
-          <p>Services include:</p>
-          <ul class="detail-list">
+          <p class="lead">Services include:</p>
+          <ul class="chips">
             <li>Audio transcription</li>
             <li>Hindi &amp; English transcription</li>
             <li>Bilingual transcription</li>
@@ -217,23 +252,24 @@
             <li>Speech dataset preparation</li>
             <li>Linguistic QA</li>
           </ul>
+          <a href="mailto:hello@yourdomain.com?subject=Transcription%20Project%20Inquiry" class="detail-link">Discuss Transcript Projects →</a>
         </div>
       </div>
 
       <!-- ─── TECHNOLOGY & AUTOMATION ─── -->
-      <div id="technology" class="detail-section">
-        <div class="detail-header">
-          <span class="detail-label">Domain of this Project</span>
-          <h2 class="detail-title">Technology &amp; Automation</h2>
-          <h3 class="detail-subtitle">Technology That Makes Operations Easier</h3>
+      <div id="technology" class="detail">
+        <div class="detail-head reveal">
+          <span class="eyebrow">06 — Domain of this Project</span>
+          <h2 class="detail-title">Technology <span class="hl">&amp; Automation</span></h2>
+          <p class="detail-subtitle">Technology That Makes Operations Easier</p>
         </div>
-        <div class="detail-body">
+        <div class="detail-body reveal" style="--d:.1s">
           <p>Our development background allows us to go beyond manual operations.</p>
           <p>We build websites, internal tools, integrations, and automation that reduce repetitive work and improve operational efficiency.</p>
-          <div class="tech-columns">
-            <div class="tech-column">
+          <div class="tech-cols">
+            <div class="tech-col">
               <h4>Development</h4>
-              <ul class="detail-list">
+              <ul class="chips">
                 <li>WordPress</li>
                 <li>WooCommerce</li>
                 <li>JavaScript</li>
@@ -244,9 +280,9 @@
                 <li>Custom web applications</li>
               </ul>
             </div>
-            <div class="tech-column">
+            <div class="tech-col">
               <h4>Automation</h4>
-              <ul class="detail-list">
+              <ul class="chips">
                 <li>Python</li>
                 <li>Selenium</li>
                 <li>Browser automation</li>
@@ -262,99 +298,99 @@
       </div>
 
       <!-- ─── HOW WE WORK ─── -->
-      <div id="process" class="process-section">
-        <h2 class="section-title">
-          Simple Process. Structured Execution.
-          <small>how we work</small>
-        </h2>
+      <div id="process" class="process">
+        <div class="section-head reveal">
+          <span class="eyebrow">07 — How We Work</span>
+          <h2 class="section-title">Simple Process. <span class="hl">Structured Execution.</span></h2>
+        </div>
         <div class="process-steps">
-          <div class="process-step">
-            <span class="step-number">01</span>
-            <div class="step-content">
-              <h4>Understand</h4>
-              <p>We understand your requirements, data, volume, timeline, and quality expectations.</p>
-            </div>
+          <div class="pstep reveal">
+            <span class="pnum">01</span>
+            <h4>Understand</h4>
+            <p>We understand your requirements, data, volume, timeline, and quality expectations.</p>
           </div>
-          <div class="process-step">
-            <span class="step-number">02</span>
-            <div class="step-content">
-              <h4>Plan</h4>
-              <p>We design the appropriate workforce, workflow, tools, and quality-control process.</p>
-            </div>
+          <div class="pstep reveal">
+            <span class="pnum">02</span>
+            <h4>Plan</h4>
+            <p>We design the appropriate workforce, workflow, tools, and quality-control process.</p>
           </div>
-          <div class="process-step">
-            <span class="step-number">03</span>
-            <div class="step-content">
-              <h4>Execute</h4>
-              <p>Our team performs the work using documented processes and project-specific guidelines.</p>
-            </div>
+          <div class="pstep reveal">
+            <span class="pnum">03</span>
+            <h4>Execute</h4>
+            <p>Our team performs the work using documented processes and project-specific guidelines.</p>
           </div>
-          <div class="process-step">
-            <span class="step-number">04</span>
-            <div class="step-content">
-              <h4>Review</h4>
-              <p>Data and outputs go through quality checks before delivery.</p>
-            </div>
+          <div class="pstep reveal">
+            <span class="pnum">04</span>
+            <h4>Review</h4>
+            <p>Data and outputs go through quality checks before delivery.</p>
           </div>
-          <div class="process-step">
-            <span class="step-number">05</span>
-            <div class="step-content">
-              <h4>Scale</h4>
-              <p>Once the process works, we scale the workforce and infrastructure according to your requirements.</p>
-            </div>
+          <div class="pstep reveal">
+            <span class="pnum">05</span>
+            <h4>Scale</h4>
+            <p>Once the process works, we scale the workforce and infrastructure according to your requirements.</p>
           </div>
         </div>
       </div>
 
       <!-- ─── WHY WORK WITH US ─── -->
       <div id="why" class="why-section">
-        <h2 class="section-title">
-          Flexible by Design. Reliable by Process.
-          <small>why work with us</small>
-        </h2>
-        <div class="why-grid">
-          <div class="why-card">
-            <h4>Human + Technology</h4>
+        <div class="section-head reveal">
+          <span class="eyebrow">08 — Why Work With Us</span>
+          <h2 class="section-title">Flexible by Design. <span class="hl">Reliable by Process.</span></h2>
+        </div>
+        <div class="why-bento reveal">
+          <article class="why-card why-1">
+            <span class="cap-num">01</span>
+            <h3>Human + Technology</h3>
             <p>We combine skilled human workers with software and automation.</p>
-          </div>
-          <div class="why-card">
-            <h4>Scalable Workforce</h4>
+          </article>
+          <article class="why-card why-2">
+            <span class="cap-num">02</span>
+            <h3>Scalable Workforce</h3>
             <p>Build project-specific teams without maintaining a permanent workforce.</p>
-          </div>
-          <div class="why-card">
-            <h4>Quality Focused</h4>
+          </article>
+          <article class="why-card why-3">
+            <span class="cap-num">03</span>
+            <h3>Quality Focused</h3>
             <p>Structured guidelines, training, review, and quality-control processes.</p>
-          </div>
-          <div class="why-card">
-            <h4>Multiple Capabilities</h4>
+          </article>
+          <article class="why-card why-4">
+            <span class="cap-num">04</span>
+            <h3>Multiple Capabilities</h3>
             <p>From data collection and annotation to software and automation.</p>
-          </div>
-          <div class="why-card">
-            <h4>Flexible Engagement</h4>
+          </article>
+          <article class="why-card why-5">
+            <span class="cap-num">05</span>
+            <h3>Flexible Engagement</h3>
             <p>Work with us on a project, ongoing contract, or scalable operational requirement.</p>
-          </div>
+          </article>
         </div>
       </div>
 
       <!-- ─── CTA ─── -->
-      <div id="contact" class="cta-section">
-        <h2 class="cta-headline">Have a Project in Mind?</h2>
-        <p class="cta-text">
-          Tell us what you're trying to build, collect, automate, or scale.
-        </p>
-        <p class="cta-text">
-          We'll help you determine the right people, process, and technology for the job.
-        </p>
-        <div class="cta-actions">
-          <a href="mailto:hello@yourdomain.com?subject=Project%20Inquiry" class="btn btn-primary">Start a Conversation</a>
-          <span class="cta-or">or</span>
-          <a href="mailto:hello@yourdomain.com?subject=Project%20Quote%20Request" class="btn btn-secondary">Request a Project Quote</a>
+      <div id="contact" class="cta">
+        <div class="cta-blobs">
+          <div class="blob blob-a"></div>
+          <div class="blob blob-b"></div>
+          <div class="blob blob-c"></div>
+        </div>
+        <div class="cta-inner">
+          <span class="eyebrow reveal">09 — Start</span>
+          <h2 class="cta-headline reveal" style="--d:.08s">Have a Project <span class="hl">in Mind?</span></h2>
+          <p class="cta-text reveal" style="--d:.16s">
+            Tell us what you're trying to build, collect, automate, or scale.
+            We'll help you determine the right people, process, and technology for the job.
+          </p>
+          <div class="cta-actions reveal" style="--d:.24s">
+            <a href="mailto:hello@yourdomain.com?subject=Project%20Inquiry" class="btn btn-primary">Start a Conversation</a>
+            <a href="mailto:hello@yourdomain.com?subject=Project%20Quote%20Request" class="btn btn-secondary">Request a Project Quote</a>
+          </div>
         </div>
       </div>
 
       <!-- ─── FOOTER STATEMENT ─── -->
       <div class="footer-statement">
-        <p>We build the people, processes, and technology behind scalable digital operations.</p>
+        <p class="reveal">We build the people, processes, and technology behind scalable digital operations.</p>
         <span class="footer-tags">AI Data · Research · Workforce · Transcription · Software · Automation</span>
       </div>
 
@@ -364,21 +400,27 @@
     <section id="page-services" class="page">
 
       <div class="services-header">
-        <h1>Our Services</h1>
-        <p>
-          AI data operations · research · remote workforce · software development ·
-          automation — delivered as agency capabilities or individual expertise.
-        </p>
+        <div class="services-blobs">
+          <div class="blob blob-a"></div>
+          <div class="blob blob-c"></div>
+        </div>
+        <div class="services-head-content">
+          <span class="eyebrow reveal">Services</span>
+          <h1 class="services-title reveal" style="--d:.08s">Our <span class="hl">Services.</span></h1>
+          <p class="reveal" style="--d:.16s">
+            AI data operations · research · remote workforce · software development ·
+            automation — delivered as agency capabilities or individual expertise.
+          </p>
+        </div>
       </div>
 
-      <!-- Excel-like merged border grid -->
       <div class="services-grid">
-
-        <div class="service-card">
+        <article class="svc s1 reveal">
+          <span class="svc-num">01</span>
           <span class="cat-label">Domain of this Project</span>
           <h3>AI Data &amp; Annotation</h3>
           <div class="sub">Training data · LLM eval · QA</div>
-          <ul>
+          <ul class="chips">
             <li>AI Data Collection</li>
             <li>Data Annotation</li>
             <li>NLP Annotation</li>
@@ -386,13 +428,15 @@
             <li>RLHF Data</li>
             <li>Dataset QA</li>
           </ul>
-        </div>
+          <div class="svc-btn"><a href="mailto:hello@yourdomain.com?subject=AI%20Data%20%26%20Annotation" class="btn btn-ink">Start a Project</a></div>
+        </article>
 
-        <div class="service-card">
+        <article class="svc s2 reveal" style="--d:.08s">
+          <span class="svc-num">02</span>
           <span class="cat-label">Domain of this Project</span>
           <h3>Transcription &amp; Speech</h3>
           <div class="sub">Audio · ASR · multilingual</div>
-          <ul>
+          <ul class="chips">
             <li>Audio Transcription</li>
             <li>Hindi / English</li>
             <li>ASR Correction</li>
@@ -400,13 +444,15 @@
             <li>Speech Dataset Prep</li>
             <li>Voice Annotation</li>
           </ul>
-        </div>
+          <div class="svc-btn"><a href="mailto:hello@yourdomain.com?subject=Transcription%20%26%20Speech" class="btn btn-ink">Start a Project</a></div>
+        </article>
 
-        <div class="service-card">
+        <article class="svc s3 reveal">
+          <span class="svc-num">03</span>
           <span class="cat-label">Domain of this Project</span>
           <h3>Survey &amp; Market Research</h3>
           <div class="sub">Recruitment · fieldwork · QC</div>
-          <ul>
+          <ul class="chips">
             <li>Consumer Survey Recruitment</li>
             <li>Market Research Fieldwork</li>
             <li>Survey Quality Control</li>
@@ -414,13 +460,15 @@
             <li>Participant Screening</li>
             <li>Workforce Management</li>
           </ul>
-        </div>
+          <div class="svc-btn"><a href="mailto:hello@yourdomain.com?subject=Survey%20%26%20Market%20Research" class="btn btn-ink">Start a Project</a></div>
+        </article>
 
-        <div class="service-card">
+        <article class="svc s4 reveal" style="--d:.08s">
+          <span class="svc-num">04</span>
           <span class="cat-label">Domain of this Project</span>
           <h3>Remote Workforce Ops</h3>
           <div class="sub">Recruitment · onboarding · coordination</div>
-          <ul>
+          <ul class="chips">
             <li>Freelancer Recruitment</li>
             <li>Candidate Screening</li>
             <li>Onboarding &amp; Training</li>
@@ -428,13 +476,15 @@
             <li>SOP Development</li>
             <li>High-Volume Hiring</li>
           </ul>
-        </div>
+          <div class="svc-btn"><a href="mailto:hello@yourdomain.com?subject=Remote%20Workforce%20Ops" class="btn btn-ink">Start a Project</a></div>
+        </article>
 
-        <div class="service-card">
+        <article class="svc s5 reveal">
+          <span class="svc-num">05</span>
           <span class="cat-label">Domain of this Project</span>
           <h3>Software &amp; Web Dev</h3>
           <div class="sub">WordPress · full stack · frontend</div>
-          <ul>
+          <ul class="chips">
             <li>WordPress / WooCommerce</li>
             <li>Next.js &amp; React</li>
             <li>Responsive Development</li>
@@ -442,13 +492,15 @@
             <li>Headless CMS</li>
             <li>JavaScript / TypeScript</li>
           </ul>
-        </div>
+          <div class="svc-btn"><a href="mailto:hello@yourdomain.com?subject=Software%20%26%20Web%20Dev" class="btn btn-ink">Start a Project</a></div>
+        </article>
 
-        <div class="service-card">
+        <article class="svc s6 reveal" style="--d:.08s">
+          <span class="svc-num">06</span>
           <span class="cat-label">Domain of this Project</span>
           <h3>Automation &amp; Tech Solutions</h3>
           <div class="sub">Python · Selenium · workflows</div>
-          <ul>
+          <ul class="chips">
             <li>Workflow Automation</li>
             <li>Browser Automation</li>
             <li>Data Extraction</li>
@@ -456,13 +508,15 @@
             <li>Reporting Automation</li>
             <li>Recruitment Automation</li>
           </ul>
-        </div>
+          <div class="svc-btn"><a href="mailto:hello@yourdomain.com?subject=Automation%20%26%20Tech%20Solutions" class="btn btn-ink">Start a Project</a></div>
+        </article>
 
-        <div class="service-card">
+        <article class="svc s7 reveal">
+          <span class="svc-num">07</span>
           <span class="cat-label">Domain of this Project</span>
           <h3>AI &amp; Data Specialist</h3>
           <div class="sub">LLM · annotation · QA</div>
-          <ul>
+          <ul class="chips">
             <li>LLM Evaluation</li>
             <li>Prompt / Response Eval</li>
             <li>Data Labeling</li>
@@ -470,13 +524,15 @@
             <li>Transcription</li>
             <li>ASR Correction</li>
           </ul>
-        </div>
+          <div class="svc-btn"><a href="mailto:hello@yourdomain.com?subject=AI%20%26%20Data%20Specialist" class="btn btn-ink">Start a Project</a></div>
+        </article>
 
-        <div class="service-card">
+        <article class="svc s8 reveal" style="--d:.08s">
+          <span class="svc-num">08</span>
           <span class="cat-label">Domain of this Project</span>
           <h3>Research &amp; Data Services</h3>
           <div class="sub">Collection · cleaning · QC</div>
-          <ul>
+          <ul class="chips">
             <li>Market Research Support</li>
             <li>Data Collection</li>
             <li>Data Verification</li>
@@ -484,13 +540,13 @@
             <li>Dataset Preparation</li>
             <li>Research Ops Support</li>
           </ul>
-        </div>
-
+          <div class="svc-btn"><a href="mailto:hello@yourdomain.com?subject=Research%20%26%20Data%20Services" class="btn btn-ink">Start a Project</a></div>
+        </article>
       </div>
 
       <!-- contact block -->
-      <div class="contact-block">
-        <span class="label">Interested in working together?</span>
+      <div class="contact-block reveal">
+        <div class="cb-label">Interested in working together?</div>
         <a href="mailto:hello@yourdomain.com?subject=Interested%20in%20your%20services&body=Hello%2C%0A%0AI%20came%20across%20your%20services%20and%20I%27m%20interested%20in%20learning%20more%20about%20...%0A%0APlease%20let%20me%20know%20when%20you%27re%20available%20to%20chat.%0A%0AThank%20you.">
           hello@yourdomain.com
         </a>
@@ -515,6 +571,9 @@
 
   </div>
 
+  <script src="vendor/gsap.min.js"></script>
+  <script src="vendor/ScrollTrigger.min.js"></script>
+  <script src="vendor/SplitText.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

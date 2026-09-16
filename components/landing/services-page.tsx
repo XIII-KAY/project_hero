@@ -92,40 +92,42 @@ export default function ServicesPage() {
       </div>
 
       {/* Card grid */}
-      <div className="services-grid">
-        {services.map((svc, i) => (
-          <Reveal as="article" delay={i % 2 === 0 ? 0 : 0.08} key={svc.num} className={`svc s${svc.num}`}>
-            <span className="svc-num">{svc.num}</span>
-            <span className="cat-label">Domain of this Project</span>
-            <h3>{svc.title}</h3>
-            <div className="sub">{svc.sub}</div>
-            <ul className="chips">
-              {svc.chips.map((chip) => (
-                <li key={chip}>{chip}</li>
-              ))}
-            </ul>
-            <div className="svc-btn">
-              <a href={mailto(svc.subject)} className="btn btn-ink">
-                Start a Project
-              </a>
-            </div>
-          </Reveal>
-        ))}
-      </div>
+      <div className="pad">
+        <div className="services-grid">
+          {services.map((svc) => (
+            <Reveal as="article" key={svc.num} className="svc">
+              <span className="svc-num">{svc.num}</span>
+              <span className="cat-label">Domain of this Project</span>
+              <h3>{svc.title}</h3>
+              <div className="sub">{svc.sub}</div>
+              <ul className="chips">
+                {svc.chips.map((chip) => (
+                  <li key={chip}>{chip}</li>
+                ))}
+              </ul>
+              <div className="svc-btn">
+                <a href={mailto(svc.subject)} className="btn btn-ink">
+                  Start a Project
+                </a>
+              </div>
+            </Reveal>
+          ))}
+        </div>
 
-      {/* Contact block */}
-      <Reveal className="contact-block">
-        <div className="cb-label">Interested in working together?</div>
-        <a
-          href={mailto(
-            "Interested in your services",
-            "Hello,\n\nI came across your services and I'm interested in learning more about...\n\nPlease let me know when you're available to chat.\n\nThank you.",
-          )}
-        >
-          {SITE.email}
-        </a>
-        <span className="contact-hint">(email pre-filled with &ldquo;Interested in...&rdquo;)</span>
-      </Reveal>
+        {/* Contact block */}
+        <Reveal className="contact-block">
+          <div className="cb-label">Interested in working together?</div>
+          <a
+            href={mailto(
+              "Interested in your services",
+              "Hello,\n\nI came across your services and I'm interested in learning more about...\n\nPlease let me know when you're available to chat.\n\nThank you.",
+            )}
+          >
+            {SITE.email}
+          </a>
+          <span className="contact-hint">(email pre-filled with &ldquo;Interested in...&rdquo;)</span>
+        </Reveal>
+      </div>
     </>
   );
 }

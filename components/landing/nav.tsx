@@ -49,11 +49,15 @@ export default function Nav() {
             Services
           </Link>
           <div className="nav-dropdown-menu">
+            <span className="dd-label">Services</span>
             {serviceLinks.map((link) => (
               <Link key={link.label} href={link.href}>
                 {link.label}
               </Link>
             ))}
+            <Link href="/services" className="dd-all">
+              View all services
+            </Link>
           </div>
         </div>
       </div>

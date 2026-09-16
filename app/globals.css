@@ -170,7 +170,12 @@
   display: flex;
   flex-direction: column;
   min-height: 100dvh;
-  padding: 0 6vw;
+}
+/* full-bleed bands (hero, services header) use their own horizontal padding;
+   everything else sits in a .pad wrapper */
+.pad {
+  padding-left: 6vw;
+  padding-right: 6vw;
 }
 
 /* ── hero nav (logo left / menu right) ── */
@@ -243,27 +248,46 @@
   transform: translateY(-52%) rotate(180deg); color: var(--accent);
 }
 .nav-dropdown-menu {
-  position: absolute; top: calc(100% + 0.5rem); left: 50%; transform: translate(-50%, 8px);
-  min-width: 250px; background: var(--card); border: 2px solid var(--line);
-  box-shadow: 6px 6px 0 var(--ink); z-index: 100; padding: 0.5rem 0;
+  position: absolute; top: 100%; right: 0; z-index: 300;
+  min-width: 280px; background: var(--card); border: 2px solid var(--line);
+  box-shadow: 6px 6px 0 var(--ink); padding: 0.45rem 0;
   opacity: 0; visibility: hidden; pointer-events: none;
-  transition: opacity 0.25s var(--ease), transform 0.25s var(--ease), visibility 0.25s;
+  transform: translateY(0.5rem);
+  transition: opacity 0.22s ease, transform 0.28s var(--ease), visibility 0.22s;
+}
+.nav-dropdown-menu::before {
+  content: ""; position: absolute; top: -8px; right: 1.4rem; width: 14px; height: 14px;
+  background: var(--card); border-left: 2px solid var(--line); border-top: 2px solid var(--line);
+  transform: rotate(45deg);
 }
 .nav-dropdown:hover .nav-dropdown-menu,
 .nav-dropdown:focus-within .nav-dropdown-menu {
-  opacity: 1; visibility: visible; pointer-events: auto; transform: translate(-50%, 0);
+  opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0);
+}
+.nav-dropdown-menu .dd-label {
+  display: block; margin: 0 1.25rem 0.35rem; padding: 0.35rem 0.25rem 0.55rem;
+  font-size: 0.62rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--accent); border-bottom: 1px solid var(--line-soft);
 }
 .nav-dropdown-menu a {
   display: block; position: relative; color: var(--ink); text-decoration: none;
-  font-size: 0.82rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase;
-  padding: 0.55rem 1.5rem; transition: color 0.2s ease, background 0.2s ease, padding-left 0.2s ease;
+  font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 0.55rem 1.5rem; transition: color 0.18s ease, background 0.18s ease, padding-left 0.18s ease;
 }
 .nav-dropdown-menu a::before {
-  content: "→"; position: absolute; left: 0.6rem; top: 50%; transform: translateY(-50%);
-  color: var(--accent); opacity: 0; transition: opacity 0.2s ease;
+  content: "→"; position: absolute; left: 0.65rem; top: 50%; transform: translateY(-50%);
+  color: var(--accent); opacity: 0; transition: opacity 0.18s ease;
 }
-.nav-dropdown-menu a:hover { color: var(--accent); background: rgba(30, 30, 30, 0.05); padding-left: 1.9rem; }
+.nav-dropdown-menu a:hover { color: var(--accent); background: rgba(30, 30, 30, 0.05); padding-left: 2rem; }
 .nav-dropdown-menu a:hover::before { opacity: 1; }
+.nav-dropdown-menu .dd-all {
+  display: block; margin: 0.4rem 1.25rem 0; padding: 0.55rem 1.5rem 0.35rem 0.25rem;
+  border-top: 1px solid var(--line-soft); font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink);
+}
+.nav-dropdown-menu a.dd-all::before { content: "→"; left: auto; right: 0.4rem; }
+.nav-dropdown-menu a.dd-all:hover { color: var(--accent); background: transparent; padding-left: 0.25rem; }
+.nav-dropdown-menu a.dd-all:hover::before { opacity: 1; }
 .dark .nav-dropdown-menu a:hover { background: rgba(228, 226, 221, 0.05); }
 
 /* ── pages ── */
@@ -284,7 +308,7 @@
 
 /* ── hero ── */
 .hero {
-  margin: 0 -6vw; width: calc(100% + 12vw); padding: 8vh 6vw 3vh 6vw;
+  width: 100%; padding: 8vh 6vw 3vh 6vw;
   min-height: clamp(620px, 84vh, 1060px); display: flex; flex-direction: column; justify-content: center;
   position: relative; text-align: center; overflow: hidden; border-bottom: 2px solid var(--line);
 }
@@ -445,7 +469,7 @@
 .footer-tags { font-size: 0.75rem; color: var(--ink-faint); letter-spacing: 0.14em; text-transform: uppercase; font-weight: 500; }
 
 /* ── services page ── */
-.services-header { position: relative; overflow: hidden; padding: 2rem 0 3rem 0; border-bottom: 2px solid var(--line); margin-bottom: 2.5rem; }
+.services-header { position: relative; overflow: hidden; padding: 2rem 6vw 3rem 6vw; border-bottom: 2px solid var(--line); margin-bottom: 2.5rem; }
 .services-header .hero-nav { margin-bottom: 2.25rem; }
 .services-blobs { position: absolute; inset: 0; overflow: hidden; z-index: 0; }
 .services-head-content { position: relative; z-index: 1; max-width: 62ch; }
@@ -453,17 +477,15 @@
 .services-title .hl { color: var(--accent); }
 .services-header p { color: var(--ink-mute); font-size: 1.05rem; line-height: 1.6; max-width: 50ch; }
 
-/* service cards — scroll card stack */
-.services-grid { display: flex; flex-direction: column; gap: 0; perspective: 1600px; padding-bottom: 4rem; }
+/* service cards — clean responsive grid */
+.services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; padding-bottom: 4rem; }
 .svc {
-  display: flex; flex-direction: column; padding: 1.75rem 1.75rem 1.6rem; background: var(--card);
-  border: 2px solid var(--line); box-shadow: 6px 6px 0 var(--ink); position: sticky;
-  top: clamp(1rem, 4vh, 2.5rem); margin-bottom: -8.5rem; transform-origin: center top; z-index: 1;
+  display: flex; flex-direction: column; padding: 1.75rem; background: var(--card);
+  border: 2px solid var(--line); box-shadow: 6px 6px 0 var(--ink);
   transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease), background 0.25s ease;
 }
-.svc:last-child { margin-bottom: 0; }
-.svc:hover { translate: 0 -4px; box-shadow: 6px 10px 0 var(--accent); background: var(--base); z-index: 3; }
-.svc-btn { align-self: flex-start; margin-top: 1.5rem; }
+.svc:hover { translate: -3px -3px; box-shadow: 9px 9px 0 var(--accent); background: var(--base); }
+.svc-btn { margin-top: auto; padding-top: 1.5rem; }
 .svc-btn .btn { padding: 0.7rem 1.4rem; font-size: 0.75rem; }
 .svc-num { font-family: var(--font-display); font-weight: 600; font-size: 0.95rem; color: var(--accent); margin-bottom: 0.9rem; }
 .cat-label { font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.14em; font-weight: 700; color: var(--accent); border: 1px solid var(--accent); padding: 0.2rem 0.55rem; display: inline-block; margin-bottom: 0.9rem; align-self: flex-start; }
@@ -491,12 +513,13 @@
   .hero-nav-links { gap: 0.6rem; }
   .hero-link { padding: 0.5rem 0.9rem; font-size: 0.66rem; }
   .cap-1, .cap-2, .cap-3, .cap-4, .cap-5, .cap-6 { grid-column: span 3; }
-  .services-grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; perspective: none; padding-bottom: 0; }
-  .svc { position: static; margin-bottom: 0; transform-origin: center; }
+  .services-grid { grid-template-columns: 1fr; padding-bottom: 0; }
+  .nav-dropdown-menu { display: none; }
 }
 @media (max-width: 640px) {
-  .app { padding: 0 5vw; }
-  .hero { margin: 0 -5vw; width: calc(100% + 10vw); padding: 8vh 5vw 3vh 5vw; min-height: 0; }
+  .pad { padding-left: 5vw; padding-right: 5vw; }
+  .hero { padding: 8vh 5vw 3vh 5vw; min-height: 0; }
+  .services-header { padding-left: 5vw; padding-right: 5vw; }
   .hero-headline { line-height: 0.85; }
   .hero-index { grid-template-columns: 1fr 1fr; }
   .idx:nth-child(3) { border-left: none; }
@@ -524,5 +547,5 @@
   }
 }
 @media (prefers-reduced-motion: reduce) and (min-width: 921px) {
-  .nav-dropdown-menu { transform: translate(-50%, 0); }
+  .nav-dropdown-menu { transform: translateY(0); }
 }

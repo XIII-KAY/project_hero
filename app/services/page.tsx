@@ -12,7 +12,9 @@ export default function Services() {
   return (
     <div className="app">
       <ServicesPage />
-      <SiteFooter />
+      <div className="pad">
+        <SiteFooter />
+      </div>
     </div>
   );
 }

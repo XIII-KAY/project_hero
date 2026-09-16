@@ -12,15 +12,19 @@ export default function HomePage() {
   return (
     <div className="app">
       <Hero />
-      <Capabilities />
-      {detailBlocks.map((block) => (
-        <DetailSection key={block.id} block={block} />
-      ))}
-      <Process />
-      <Why />
-      <Cta />
-      <FooterStatement />
-      <SiteFooter />
+      <div className="pad">
+        <Capabilities />
+        {detailBlocks.map((block) => (
+          <DetailSection key={block.id} block={block} />
+        ))}
+        <Process />
+        <Why />
+        <Cta />
+        <FooterStatement />
+      </div>
+      <div className="pad">
+        <SiteFooter />
+      </div>
     </div>
   );
 }
